@@ -1,0 +1,17 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.18;
+contract stome{
+    uint[] public a1 =[3,2,4,5,7];
+
+    function st() public{
+        uint[] storage arrs=a1;
+        arrs[1]=37;
+    }
+
+    function me() public view{
+        uint[] memory arrm=a1;
+        arrm[2]=37;
+    }
+}
+// When we call st() then a1 array also gets changed because its on blockchain and arrs & a1 points to the same address
+// Whereas memory copies that array and hence, when we call me() then there is no change in the a1 array
